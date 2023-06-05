@@ -7,7 +7,7 @@ export interface DeletePostIpuntDTO {
 
 export type DeletePostOutputDTO = undefined
 
-export const deletePlaylistSchema = z.object({
+export const deletePostSchema = z.object({
     token: z.string().min(1),
     idToDelete: z.string().min(1)
 })
