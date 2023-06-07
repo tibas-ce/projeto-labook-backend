@@ -33,7 +33,7 @@ export class UserBusiness {
         )
 
         const userDB = user.toDBModel()
-        await this.userDatabase.insert(userDB)
+        await this.userDatabase.insertUser(userDB)
 
         const payload: TokenPayload = {
             id: user.getId(),
