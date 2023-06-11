@@ -32,4 +32,20 @@ export class PostsDatabase extends BaseDatabase {
 
         return postsDB as PostDBWithCreatorName[]
     }
+    
+    public findPostById = async (id: string): Promise<PostDB | undefined> => {
+        const [result] = await BaseDatabase
+            .connection(PostsDatabase.TABLE_POSTS)
+            .select()
+            .where({id})
+
+        return result as PostDB | undefined
+    }
+
+    public updatedPostDB = async (postDB: PostDB): Promise<void> => {
+        await BaseDatabase
+            .connection(PostsDatabase.TABLE_POSTS)
+            .update(postDB)
+            .where({ id: postDB.id })
+    }
 }

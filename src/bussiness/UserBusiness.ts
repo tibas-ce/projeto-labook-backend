@@ -41,8 +41,10 @@ export class UserBusiness {
             role: user.getRole()
         }
 
+        const token = this.tokenManager.createToken(payload)
+
         const output: SignupOutputDTO = {
-            token: this.tokenManager.createToken(payload)
+            token
         }
 
         return output
